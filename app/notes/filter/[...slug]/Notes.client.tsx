@@ -6,12 +6,11 @@ import { useDebouncedCallback } from 'use-debounce';
 import { fetchNotes } from '@/lib/api';
 import ErrorMessage from '@/components/ErrorMessage/ErrorMessage';
 import Loader from '@/components/Loader/Loader';
-import Modal from '@/components/Modal/Modal';
-import NoteForm from '@/components/NoteForm/NoteForm';
 import NoteList from '@/components/NoteList/NoteList';
 import Pagination from '@/components/Pagination/Pagination';
 import SearchBox from '@/components/SearchBox/SearchBox';
 import css from './page.module.css';
+import Link from 'next/link';
 
 interface Props {
   tag?: string;
@@ -20,7 +19,6 @@ interface Props {
 function App({ tag }: Props) {
   const [query, setQuery] = useState('');
   const [page, setPage] = useState(1);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const handleSearch = useDebouncedCallback((value: string) => {
     setQuery(value);
     setPage(1);
@@ -41,18 +39,13 @@ function App({ tag }: Props) {
         {totalPages > 1 && (
           <Pagination totalPages={totalPages} currentPage={page} onPageChange={setPage} />
         )}
-        <button className={css.button} onClick={() => setIsModalOpen(true)}>
+        <Link className={css.button} href="/notes/action/create">
           Create note +
-        </button>
+        </Link>
       </header>
       {isError && <ErrorMessage />}
       {isLoading && <Loader />}
       {notes.length > 0 && <NoteList notes={notes} />}
-      {isModalOpen && (
-        <Modal onClose={() => setIsModalOpen(false)}>
-          <NoteForm onClose={() => setIsModalOpen(false)} />
-        </Modal>
-      )}
     </div>
   );
 }

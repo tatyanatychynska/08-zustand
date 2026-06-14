@@ -55,7 +55,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${robotoFont.variable}`}
     >
-      <body>
+      <body className={robotoFont.className}>
         <TanStackProvider>
           <Header />
           {modal}
