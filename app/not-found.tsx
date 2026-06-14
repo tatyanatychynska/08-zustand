@@ -17,8 +17,8 @@ export const metadata: Metadata = {
   title: '404 - Page not found | NoteHub',
   description: 'Sorry, the page you are looking for does not exist.',
   openGraph: {
-    title: `NoteHub`,
-    description: `NoteHub is a simple and efficient application designed for managing personal notes. It helps keep your thoughts organized and accessible in one place, whether you are at home or on the go.`,
+    title: `404 - Page not found | NoteHub`,
+    description: `Sorry, the page you are looking for does not exist.`,
     url: `https://08-zustand-seven-ivory.vercel.app`,
     siteName: 'NoteHub',
     images: [
