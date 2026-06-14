@@ -9,7 +9,7 @@ const NotePreview = async ({ params }: Props) => {
   const { id } = await params;
   const queryClient = new QueryClient();
 
-  queryClient.prefetchQuery({
+  await queryClient.prefetchQuery({
     queryKey: ['note', id],
     queryFn: () => fetchNoteById(id),
   });

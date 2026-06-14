@@ -1,5 +1,6 @@
 import React from 'react';
-import css from './page.module.css';
+import css from './Home.module.css';
+import type { Metadata } from 'next';
 
 const NotFoundPage = () => {
   return (
@@ -12,3 +13,22 @@ const NotFoundPage = () => {
 
 export default NotFoundPage;
 
+export const metadata: Metadata = {
+  title: '404 - Page not found | NoteHub',
+  description: 'Sorry, the page you are looking for does not exist.',
+  openGraph: {
+    title: `NoteHub`,
+    description: `NoteHub is a simple and efficient application designed for managing personal notes. It helps keep your thoughts organized and accessible in one place, whether you are at home or on the go.`,
+    url: `https://notehub.com`,
+    siteName: 'NoteHub',
+    images: [
+      {
+        url: 'https://ac.goit.global/fullstack/react/og-meta.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'NoteHub',
+      },
+    ],
+    type: 'article',
+  },
+};

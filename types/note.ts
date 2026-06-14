@@ -16,3 +16,4 @@ export interface NoteFormValues {
   content: string;
   tag: NoteTag;
 }
+
